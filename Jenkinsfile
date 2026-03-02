@@ -1,14 +1,9 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven'
-        jdk 'JDK17'     // change en JDK11 ou JDK21 si ton pom.xml est différent
-    }
-
     environment {
         DOCKER_IMAGE = 'omaimasahli/spring-k8s-app'
-        DOCKER_CREDENTIALS = 'OmaimaSahli'   // ← exactement le nom de ton credential DockerHub
+        DOCKER_CREDENTIALS = 'OmaimaSahli'   // ← ton credential DockerHub
     }
 
     stages {
@@ -46,7 +41,7 @@ pipeline {
 
     post {
         success {
-            echo "✅ Pipeline terminé avec succès !"
+            echo "✅ Pipeline terminé avec succès ! Image : ${DOCKER_IMAGE}:${BUILD_NUMBER}"
         }
         failure {
             echo "❌ Pipeline échoué"
