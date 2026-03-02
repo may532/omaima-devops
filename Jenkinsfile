@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'omaimasahli/spring-k8s-app'
-        DOCKER_CREDENTIALS = 'OmaimaSahli'   // ← ton credential DockerHub
+        DOCKER_CREDENTIALS = 'dockerhub-credentials'
     }
 
     stages {
